@@ -8,7 +8,6 @@
   "dependencies": {
     "@sap/cds": "^7",
     "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
-    "@sap/textbundle": "^4.2.0",
     "express": "^4"
   },
   "devDependencies": {
@@ -16,18 +15,5 @@
   },
   "scripts": {
     "start": "cds-serve"
-  },
-  "cds": {
-    "requires": {
-      "i18n": {
-        "folders": ["_i18n", "i18n"],
-        "preserved_locales": [
-          "en_US",
-          "de_DE",
-          "es_MX",
-          "fr_FR"
-        ]
-      }
-    }
   }
 }
