@@ -2,3 +2,9 @@
 
 ###
 GET {{server}}/electric/getNoRecords()
+
+###
+GET {{server}}/electric/getLocation()
+
+###
+GET {{server}}/electric/getCitiesWithCarFromState(county='King)

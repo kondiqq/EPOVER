@@ -19,6 +19,19 @@ service ElectricVechicle @(path: '/electric') {
         model : String;
         year  : Integer;
     };
+
+    type evtType {
+        type : String;
+        quantity: Integer;
+    }
+
+    type location {
+        count       : String;
+        city        : String;
+        state       : String;
+        postal_code : Integer;
+        // counter     : Integer;
+    }
     
 
     function getNoRecords() returns Integer;
@@ -29,4 +42,9 @@ service ElectricVechicle @(path: '/electric') {
     function getNewestCar() returns yearLong;
     function getOldestCar() returns yearLong;
     function getMostPopularCar() returns carMake;
+    function getAverageDistance() returns Double;
+    function getEVTtype() returns Array of evtType;
+    function getLocation() returns array of location;
+    function getUniqueCities() returns array of String;
+    function getCitiesWithCarFromCounty(county: String) returns array of location;
 }
