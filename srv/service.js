@@ -1,5 +1,6 @@
 const cds = require('@sap/cds');
 const textBundle = require(`./handlers/textBundle`);
+const pdfGen = require(`./handlers/pdfGenerator`);
 
 module.exports = srv => {
     const {VechicleData} = srv.entities("ElectricVechicle");
@@ -90,4 +91,10 @@ module.exports = srv => {
         let oQuery = SELECT.distinct.from(VechicleData).columns(`City as city`, `Postal_code as postal_code`, `count(City) as quantity`).where({County: `${oCounty}`}).groupBy(`City`);
         return await cds.run(oQuery);
     })
+
+    srv.on(`printPdf`, (req, res) => {
+        const locale = req.user.locale;
+        const bundle = textBundle.getTextBundle(locale);
+        pdfGen.makePDF();
+    });
 }

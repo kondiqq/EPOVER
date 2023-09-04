@@ -47,4 +47,5 @@ service ElectricVechicle @(path: '/electric') {
     function getLocation() returns array of location;
     function getUniqueCities() returns array of String;
     function getCitiesWithCarFromCounty(county: String) returns array of location;
+    function printPdf() returns Integer;
 }
