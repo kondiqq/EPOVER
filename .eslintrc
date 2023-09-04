@@ -25,14 +25,23 @@
   },
   "rules": {
     "no-console": "off",
+    "hungarian-notation": "true",
     "require-atomic-updates": "off",
     "budapestian/parameter-pattern": "error",
     "budapestian/global-variable-pattern": "error",
     "budapestian/local-variable-pattern": [
       "error",
-      { "exceptions": ["i", "j", "k", "x", "y", "z"] }
+      {
+        "exceptions": [
+          "i",
+          "j",
+          "k",
+          "x",
+          "y",
+          "z"
+        ]
+      }
     ],
     "budapestian/global-constant-pattern": "error"
   }
 }
-
