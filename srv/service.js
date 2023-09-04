@@ -1,6 +1,7 @@
 const cds = require('@sap/cds');
 const textBundle = require(`./handlers/textBundle`);
 const pdfGen = require(`./handlers/pdfGenerator`);
+const carInfo = require(`./handlers/carInfo`);
 
 module.exports = srv => {
     const {VechicleData} = srv.entities("ElectricVechicle");
@@ -97,4 +98,17 @@ module.exports = srv => {
         const bundle = textBundle.getTextBundle(locale);
         pdfGen.makePDF();
     });
+
+    srv.on(`generateJWT`, async req => {
+        let sToken = ``;
+        if(req.headers.authorization){
+            sToken = req.headers.authorization;
+        }
+        console.log(sToken);
+        return sToken;
+    })
+
+    srv.on(`getMoreCarInformation`, async(res, req) => {
+        carInfo.getCarModelInfo()
+    })
 }
